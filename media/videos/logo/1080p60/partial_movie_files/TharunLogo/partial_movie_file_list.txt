@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:/home/kaido/manim_projects/media/videos/logo/1080p60/partial_movie_files/TharunLogo/3529212410_2138469566_223132457.mp4'
-file 'file:/home/kaido/manim_projects/media/videos/logo/1080p60/partial_movie_files/TharunLogo/3040924799_2844360058_3375622197.mp4'
-file 'file:/home/kaido/manim_projects/media/videos/logo/1080p60/partial_movie_files/TharunLogo/3040924799_3472894649_7880629.mp4'
