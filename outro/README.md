@@ -4,7 +4,7 @@ This repository contains a custom font designed to replicate the iconic "To Be C
 
 ## View Outro.mp4
 
-The actual mp4 animated outro is inside "media/videos/outro/960p60/outro.mp4"
+The actual mp4 animated outro is inside **`media/videos/outro/960p60/outro.mp4`**
 
 ## Original vs Custom Font Output
 
