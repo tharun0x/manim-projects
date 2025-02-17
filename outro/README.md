@@ -2,6 +2,10 @@
 
 This repository contains a custom font designed to replicate the iconic "To Be Continued" text style from One Piece. The font was created using **FontForge** and **Inkscape** and is tailored specifically for rendering the phrase **"TO BE CONTINUED"** with proper spacing and alignment.
 
+## View Outro.mp4
+
+The actual mp4 animated outro is inside "media/videos/outro/960p60/outro.mp4"
+
 ## Original vs Custom Font Output
 
 Here is a comparison between the original "To Be Continued" text style from One Piece and the output using the custom font you can download.
@@ -10,7 +14,7 @@ Here is a comparison between the original "To Be Continued" text style from One 
 ![Original "To Be Continued"](original.jpg)
 
 ### Custom Font Output:
-![Animated using Manim](outro.gif)
+![Animated using Manim](outro.jpg)
 
 ## Font Details
 - The font only includes the necessary letters required for the phrase "TO BE CONTINUED."
