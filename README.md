@@ -1,2 +1,2 @@
-# manim-projects
+## Manim Projects
 Animated math videos using manim
