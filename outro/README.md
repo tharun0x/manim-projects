@@ -10,7 +10,7 @@ Here is a comparison between the original "To Be Continued" text style from One 
 ![Original "To Be Continued"](original.jpg)
 
 ### Custom Font Output:
-![Animated using Manim](outro.jpg)
+![Animated using Manim](outro/media/videos/outro/960p60/outro.mp4)
 
 ## Font Details
 - The font only includes the necessary letters required for the phrase "TO BE CONTINUED."
