@@ -96,7 +96,8 @@ manimgl MyScene.py SquareToCircle -se 6
 ```
 
 
-![Screenshot of ManimGL Interactive Window](Screenshot.png)
+![Screenshot of ManimGL Interactive Window](Screenshot1.png)
+![Screenshot of ManimGL Interactive Window](Screenshot2.png)
 
 An OpenGL interactive window will open. You can interact live with the scene using your mouse and the following keybindings:
 
