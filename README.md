@@ -64,9 +64,9 @@ For more details about manim - [https://github.com/3b1b/manim](https://github.co
       .venv\Scripts\activate
       ```
     - Install ManimGL and dependencies:
-	  ```powershell
-	  pip install manimgl pycairo pygame pyqt5 setuptools python-dotenv ipython jupyter
-    ```
+      ```powershell
+      pip install manimgl pycairo pygame pyqt5 setuptools python-dotenv ipython jupyter
+      ```
 
 7. **Edit default_config.yml**
 	- After installation, edit `manimlib/default_config.yml` in your venv (`.venv/Lib/site-packages/manimlib/`) to set your preferred background color, fps, resolution, etc.
