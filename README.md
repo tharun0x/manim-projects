@@ -89,7 +89,7 @@ class SquareToCircle(InteractiveScene):
 ```
 
 
-Save as `MyScene.py`. To enter interactive mode, run:
+Save as `MyScene.py`. To enter interactive mode, run: manimgl (file name) (scene name) -se (line_number)
 
 ```powershell
 manimgl MyScene.py SquareToCircle -se 6
@@ -118,7 +118,7 @@ An OpenGL interactive window will open. You can interact live with the scene usi
 
 To test code instantly in the interactive window, type commands like `circle.shift(RIGHT)` in the terminal and hit enter.
 
-To render a scene as a video file:
+To render a scene as a video file(4k) run: manimgl (flag) (file name) (scene name) -w
 
 ```powershell
 manimgl --uhd MyScene.py SquareToCircle -w
