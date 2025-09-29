@@ -4,3 +4,7 @@ __pycache__/
 .DS_Store
 media/
 videos/
+geometry.py
+spider1.jpg
+spider2.jpg
+test.py
