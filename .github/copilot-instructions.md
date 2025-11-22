@@ -28,7 +28,7 @@ default_config.yml         # Global ManimGL config (directories, window, camera)
 manimgl 2025/shorts/Nov25/episode1.py Episode1 -se 5 -r 2160x4320
 ```
 - `-se 5`: Start execution at line 5
-- `-r 2160x4320`: Portrait resolution (9:16 aspect ratio)
+- `-r 2160x4320`: Portrait resolution (9:18 aspect ratio)
 - Opens OpenGL window; use keybindings to interact (see README.md)
 
 **Render to video (4K portrait):**
@@ -70,15 +70,25 @@ class Episode1(Scene):  # Use Scene, not InteractiveScene for shorts
 ### Key ManimGL Syntax
 - **Text:** `Text("string", font_size=X, color=BLUE)` or `Tex("latex", font_size=X)`
 - **Animations:** `self.play(Write(...), run_time=2)`, `FadeIn(..., shift=UP)`, `Transform(a, b)`
+  - **Note:** `ShrinkToCenter` does NOT take `shift`.
+  - **Cleanup:** Use `FadeOut(Group(...))` for multiple items.
+- **Resizing:** Use `set_width()` or `set_height()`. **Avoid** `scale_to_fit_width()` (ManimCE).
 - **Positioning:** `.to_edge(UP, buff=2.0)`, `.next_to(other, DOWN, buff=1.0)`, `.move_to(ORIGIN)`
 - **Groups:** `VGroup(obj1, obj2).arrange(RIGHT, buff=0.1)`
-- **Colors:** `BLUE`, `RED`, `GREEN`, `YELLOW` (capital, from manimlib.constants)
+- **Colors:** `BLUE`, `RED`, `GREEN`, `YELLOW` (capital, from manimlib.constants). `Triangle()` needs explicit color.
 
-### Portrait Layout Best Practices
-- **Vertical stacking:** Heavy use of `.to_edge(UP/DOWN)` and `.next_to(..., DOWN, buff=X)`
-- **Font sizes:** 40-60 for titles, 70-120 for key numbers, 80 for equations
-- **Spacing:** `buff=1.0` to `2.0` between elements (more breathing room in portrait)
-- **Avoid horizontal spread:** Keep elements centered or vertically aligned
+### Portrait Layout Best Practices (9:16)
+- **Vertical Stacking:** Essential. Use `.next_to(..., DOWN)` or `.to_edge(UP/DOWN)`.
+- **Buff Values:**
+  - **Titles:** `buff=1.5` to `2.0` from `UP` edge (leaves room for UI).
+  - **Between Sections:** `buff=1.0` to `1.5` (clear separation).
+  - **Tight Grouping:** `buff=0.2` to `0.5` (e.g., equation steps).
+- **Font Sizes:**
+  - **Titles:** `35-40` (readable, not overwhelming).
+  - **Main Equations:** `50-60`.
+  - **Big Numbers (Visuals):** `120` (main focus), `30-40` (secondary).
+  - **CTA/Footer:** `30-40`.
+- **Avoid Horizontal Spread:** Keep elements centered or vertically aligned.
 
 ## Content Creation Workflow (Shorts)
 1. **Receive storyboard** with timing (0-2s hook, 2-6s method, 6-14s reveal, etc.)
