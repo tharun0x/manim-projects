@@ -2,7 +2,6 @@ from manimlib import *
 
 class Episode1(Scene):
     def construct(self):
-        # --- 0.0–2.0s Hook ---
         # Big top text: "Multiply 23 × 11 in 5 seconds?"
         title = Text("Multiply any 2 digit\n number with 11 in\n 5 seconds?", font_size=35, fill_color=RED)
         title.to_edge(UP, buff=1.5)
@@ -12,14 +11,10 @@ class Episode1(Scene):
 
         self.play(Write(title), run_time=3)
         self.play(Write(problem), run_time=3)
-        self.wait(0.5)
-
-        # --- 2.0–6.0s Show method with one example ---
-        # Visual: write 2 3 with a gap between digits.
-        
+        self.wait(0.5)        
         self.play(FadeOut(problem))
 
-        # Representation of 23 split
+        # Representation of 23
         d1 = Tex("2", font_size=120, fill_color=BLUE)
         d2 = Tex("3", font_size=120, fill_color=BLUE)
         group_23 = VGroup(d1, d2).arrange(RIGHT, buff=0.2)
@@ -34,11 +29,9 @@ class Episode1(Scene):
             d2.animate.shift(RIGHT * 0.75),
             run_time=1
         )
-        self.wait(1) # Voice: "Write the two digits with a space between them."
+        self.wait(1)
 
-        # --- 6.0–14.0s Reveal trick ---
-        # Visual step: show the middle digit as sum 2+3 = 5, place it between them to form 2 5 3.
-        
+        # show the middle digit as sum 2+3 = 5, place it between them to form 2 5 3.        
         calculation = Tex("2 + 3 = 5", font_size=80)
         calculation.next_to(group_23, DOWN, buff=1.0)
 
@@ -69,9 +62,7 @@ class Episode1(Scene):
         # Cleanup for next section
         self.play(FadeOut(Group(title, final_result, full_eq)))
 
-        # --- 14.0–20.0s Show edge cases ---
-        # Visual: show 58 × 11 -> 5 + 8 = 13, carry the 1 to left: result 638.
-        
+        # show 58 × 11 -> 5 + 8 = 13, carry the 1 to left: result 638.        
         edge_cases = Text("Edge Cases", font_size=50, fill_color=RED).to_edge(UP, buff=2.0)
         edge_title = Text("What about 58 x 11?", font_size=37).to_edge(UP, buff=2.0)
         edge_title.next_to(edge_cases, DOWN, buff=0.5)
@@ -138,9 +129,7 @@ class Episode1(Scene):
         
         self.play(FadeOut(Group(edge_cases, edge_title, final_58, check_58)))
 
-        # --- 20.0–28.0s Quick practice challenge + CTA ---
-        # Visual: flash 43 × 11 and 99 × 11 quickly, hold answers for 1.5s each.
-
+        # show 43 × 11 = ?
         challenge = Text("Your turn!\nTry this", font_size=45, fill_color=RED)
         challenge.to_edge(UP, buff=2)
         self.play(Write(challenge))
