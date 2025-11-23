@@ -3,7 +3,7 @@ from manimlib import *
 class Episode1(Scene):
     def construct(self):
         # Big top text: "Multiply 23 × 11 in 5 seconds?"
-        title = Text("Multiply any 2 digit\n number with 11 in\n 5 seconds?", font_size=35, fill_color=RED)
+        title = Text("Multiply any 2 digit\n number by 11 in\n 5 seconds?", font_size=35, fill_color=RED)
         title.to_edge(UP, buff=1.5)
         
         problem = Tex("23 \\times 11 =\ ?", font_size=50)
