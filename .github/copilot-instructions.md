@@ -142,6 +142,76 @@ class Episode1(Scene):  # Use Scene, not InteractiveScene for shorts
 
 ## Examples to Reference
 - **Short structure:** `2025/shorts/Nov25/episode2.py` (squaring 5s, perfected workflow, standard CTA)
+- **Visual proof:** `2025/shorts/Nov25/episode3.py` (triangle area formula, geometry animations, step-by-step solving)
 - **Interactive testing:** `2025/MyScene.py` (basic transform example)
 - **Custom fonts:** `2025/outro/outro.py` + `outro/README.md`
 - **ManimCE syntax (avoid):** `2025/teasers/gear2_intro_4k.py` (has `config.pixel_height`, wrong for ManimGL)
+
+## Episode 3 Learnings (Triangle Area Visual Proof)
+
+### Text/Tex Color Syntax
+- **Use `fill_color=` for Text and Tex objects** (NOT `color=`)
+- Example: `Text("LIKE", font_size=40, fill_color=TEAL)`
+
+### Tex Syntax Preferences
+- **Units in equations:** Use `" =\ 20\ cm^2"` (escaped spaces) NOT `r"= 20\ \text{cm}^2"` (avoid `\text{}`)
+- **Triangle symbol:** `\\triangle` (works in ManimGL)
+- **Multiplication:** `\\times` for × symbol
+
+### Geometry: Triangle Height Line
+- **Height drops from apex perpendicular to base** (NOT bisecting the base)
+- Get apex position: `apex = triangle.get_vertices()[2]`
+- Calculate foot at base level: `foot = np.array([apex[0], base_y, 0])`
+- Use `DashedLine(apex, foot, color=WHITE, stroke_width=3)` for height visualization
+- Add right angle marker: `Square(side_length=0.15)` positioned at foot
+
+### Geometry: Parallelogram Formation
+- **Rotate duplicate triangle 180° around shared edge midpoint:**
+```python
+verts = triangle.get_vertices()
+v2, v3 = verts[1], verts[2]  # bottom-right, apex
+midpoint_edge = np.array([(v2[0] + v3[0]) / 2, (v2[1] + v3[1]) / 2, 0])
+self.play(Rotate(triangle_copy, PI, about_point=midpoint_edge), run_time=1.5)
+```
+
+### Geometry: Parallelogram Symbol (No LaTeX)
+- `\parallelogram` does NOT exist in LaTeX
+- Create manually with `Polygon`:
+```python
+para_symbol = Polygon(
+    ORIGIN, RIGHT * 0.3, RIGHT * 0.3 + UP * 0.2 + RIGHT * 0.1, UP * 0.2 + RIGHT * 0.1,
+    color=WHITE, stroke_width=2
+)
+para_symbol.set_height(0.25)
+```
+
+### Step-by-Step Solving Animation Pattern
+When showing worked examples, build equations piece by piece:
+1. **Write the formula:** `△ Area = ½ × b × h`
+2. **Copy structure down:** `TransformFromCopy(formula, eq_half_times)` for `= ½ ×`
+3. **Copy values from diagram:** `TransformFromCopy(base_label, eight_copy)` - numbers fly from their labels
+4. **Write connectors:** `Write(times_sign)` for `×` between values
+5. **Copy second value:** `TransformFromCopy(height_label, five_copy)`
+6. **Continue with calculation steps**
+
+**Key insight:** Don't transform the whole equation at once. Build it piece by piece so values visibly come from their source (the triangle labels).
+
+### Base/Height Labels with Braces
+```python
+base_brace = Brace(Line(base_left, base_right), DOWN, buff=0.1)
+base_label = Tex("b", font_size=40, fill_color=TEAL)
+base_label.next_to(base_brace, DOWN, buff=0.1)
+```
+
+### Audience Challenge Pattern
+- Use different values than the worked example (e.g., base=12, height=7 instead of base=8, height=5)
+- Scale triangle proportionally to match values visually
+- Include timer animation for engagement:
+```python
+clock = VGroup()
+face = Circle(radius=0.5, stroke_color=TEAL)
+hand = Line(ORIGIN, UP * 0.4, stroke_width=4)
+clock.add(face, hand)
+self.play(Rotate(hand, angle=-TAU, about_point=face.get_center()), run_time=5, rate_func=linear)
+```
+
