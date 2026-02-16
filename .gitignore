@@ -10,4 +10,7 @@ spider2.jpg
 test.py
 2025/new.py
 2025/**/*.txt
-2025/x_posts/
+2026/**/*.txt
+x_posts/
+.github
+*.txt
