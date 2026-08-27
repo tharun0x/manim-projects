@@ -1,11 +1,11 @@
 from manimlib import *
 
-class Episode17(Scene):
+class Episode16(Scene):
     def construct(self):
         # =================================================================
         # SECTION 1: HOOK
         # =================================================================
-        hook = Tex("a^2 - b^2 = (a+b)(a-b)", font_size=45)
+        hook = Tex("a^2 - b^2 = (a+b)(a-b)", font_size=36)
         hook.move_to(ORIGIN + UP * 0.5)
         self.play(Write(hook), run_time=1.5)
         self.wait(1)
@@ -20,8 +20,8 @@ class Episode17(Scene):
         # =================================================================
         # SECTION 2: THE PROOF
         # =================================================================
-        a = 2.3
-        b = 1.0
+        a = 1.7
+        b = 0.7
 
         # --- Step 1: Square with bottom brace "a" ---
         sq = Square(side_length=a)
@@ -175,8 +175,8 @@ class Episode17(Scene):
         self.wait(2)
 
         # --- Step 7: Assemble (a+b)(a-b) below ---
-        part_apb = Tex("(a+b)", font_size=35)
-        part_amb = Tex("(a-b)", font_size=35)
+        part_apb = Tex("(a+b)", font_size=30)
+        part_amb = Tex("(a-b)", font_size=30)
         part_apb.next_to(apb, DOWN, buff=0.5)
         part_amb.next_to(part_apb, RIGHT, buff=0.05)
 
@@ -185,14 +185,14 @@ class Episode17(Scene):
         self.wait(1)
 
         # title2 (a²-b²) moves down next to the assembled expression
-        title_copy = Tex("a^2 - b^2 =", font_size=35)
+        title_copy = Tex("a^2 - b^2 =", font_size=30)
         title_copy.next_to(part_apb, LEFT, buff=0.15)
 
         self.play(TransformFromCopy(title, title_copy), run_time=1)
         self.wait(1)
 
         # --- Step 8: All merge into full formula below, in RED ---
-        formula = Tex("a^2 - b^2 = (a+b)(a-b)", font_size=42, fill_color=RED)
+        formula = Tex("a^2 - b^2 = (a+b)(a-b)", font_size=35, fill_color=RED)
         formula.move_to(VGroup(title_copy, part_apb, part_amb).get_center())
 
         self.play(
@@ -223,12 +223,12 @@ class Episode17(Scene):
         self.play(Write(ex_title), run_time=1)
         self.wait(1)
 
-        e1 = Tex("97 \\times 103", font_size=45)
+        e1 = Tex("103 \\times 97", font_size=45)
         e1.next_to(ex_title, DOWN, buff=0.5)
         self.play(Write(e1), run_time=1)
         self.wait(1)
 
-        e2 = Tex("= (100-3)(100+3)", font_size=40)
+        e2 = Tex("= (100+3)(100-3)", font_size=40)
         e2.next_to(e1, DOWN, buff=0.4)
         self.play(Write(e2), run_time=1)
         self.wait(1)
@@ -258,7 +258,7 @@ class Episode17(Scene):
         # CHALLENGE
         # =================================================================
         c_title = Text("Challenge", font_size=45, fill_color=RED)
-        c_eq = Tex("48 \\times 52 = \\ ?", font_size=50)
+        c_eq = Tex("52 \\times 48 = \\ ?", font_size=50)
         challenge_group = VGroup(c_title, c_eq).arrange(DOWN, buff=0.3)
         challenge_group.to_edge(UP, buff=2.5)
 

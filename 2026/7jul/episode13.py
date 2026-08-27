@@ -7,7 +7,7 @@ class Episode13(Scene):
         # =================================================================
         hook_eq = Tex("1 + 3 + 5 + 7 = 16 = 4^2", font_size=40)
         hook_eq.to_edge(UP, buff=3)
-        self.play(Write(hook_eq), run_time=1.5)
+        self.play(Write(hook_eq), run_time=3)
         self.wait(1)
 
         hook_q = Text("Why always a\nPERFECT SQUARE?", font_size=30, fill_color=RED)
@@ -137,7 +137,7 @@ class Episode13(Scene):
         # CHALLENGE
         # =================================================================
         c_title = Text("Challenge", font_size=45, fill_color=RED)
-        c_eq = Tex("1 + 3 + 5 + \\cdots + 19 = \\ ?", font_size=45)
+        c_eq = Tex("1 + 3 + 5 + \\cdots + 19 = \\ ?", font_size=35)
         challenge_group = VGroup(c_title, c_eq).arrange(DOWN, buff=0.3)
         challenge_group.to_edge(UP, buff=2.5)
 
